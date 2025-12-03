@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Ngân Hàng Số Doanh Nghiệp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="logo">Biz Digital Banking</div>
+      <nav>
+        <a class="nav-item active" href="#overview">Tổng quan</a>
+        <a class="nav-item" href="#pipeline">Dự án</a>
+        <a class="nav-item" href="#tasks">Task Board</a>
+        <a class="nav-item" href="#teams">Nhân sự</a>
+      </nav>
+      <div class="sidebar-footer">
+        <p class="caption">Phòng Ngân hàng số DN</p>
+        <span class="badge badge-success">Vận hành</span>
+      </div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Dashboard điều hành</p>
+          <h1>Giám sát dự án & công việc</h1>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost">Tải báo cáo</button>
+          <button class="primary">Tạo task mới</button>
+        </div>
+      </header>
+
+      <section id="overview" class="panel">
+        <div class="panel-header">
+          <h2>Tổng quan phòng ban</h2>
+          <div class="filters">
+            <label>Quý
+              <select>
+                <option>Q1 2024</option>
+                <option selected>Q2 2024</option>
+                <option>Q3 2024</option>
+              </select>
+            </label>
+            <label>Đơn vị
+              <select>
+                <option>Toàn phòng</option>
+                <option>Squad KHDN</option>
+                <option>Squad SME</option>
+                <option>Hỗ trợ vận hành</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="grid metrics">
+          <div class="card metric">
+            <p class="caption">Dự án đang triển khai</p>
+            <h3>18</h3>
+            <p class="trend up">+3 so với quý trước</p>
+          </div>
+          <div class="card metric">
+            <p class="caption">Tỉ lệ đúng tiến độ</p>
+            <h3>86%</h3>
+            <p class="trend">-2% so với mục tiêu</p>
+          </div>
+          <div class="card metric">
+            <p class="caption">Task mở</p>
+            <h3>342</h3>
+            <p class="trend up">+27 tuần này</p>
+          </div>
+          <div class="card metric">
+            <p class="caption">Rủi ro đỏ</p>
+            <h3>4</h3>
+            <p class="trend">Cần hành động</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pipeline" class="panel">
+        <div class="panel-header">
+          <h2>Danh mục dự án</h2>
+          <div class="filters">
+            <label>Trạng thái
+              <select id="project-filter-status">
+                <option value="all">Tất cả</option>
+                <option value="green">On-track</option>
+                <option value="amber">Theo dõi</option>
+                <option value="red">Nguy cơ</option>
+              </select>
+            </label>
+            <label>Owner
+              <select id="project-filter-owner">
+                <option value="all">Tất cả</option>
+                <option value="Pham Van An">Phạm Văn An</option>
+                <option value="Le Thu Ha">Lê Thu Hà</option>
+                <option value="Tran Bao Long">Trần Bảo Long</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table" id="project-table">
+            <thead>
+              <tr>
+                <th>Tên dự án</th>
+                <th>Owner</th>
+                <th>Tiến độ</th>
+                <th>Thời gian</th>
+                <th>Rủi ro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Filled by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tasks" class="panel">
+        <div class="panel-header">
+          <h2>Task Board</h2>
+          <div class="filters">
+            <label>Trạng thái
+              <select id="task-filter-status">
+                <option value="all">Tất cả</option>
+                <option value="todo">To-do</option>
+                <option value="doing">In progress</option>
+                <option value="review">Review</option>
+                <option value="done">Done</option>
+              </select>
+            </label>
+            <label>Squad
+              <select id="task-filter-squad">
+                <option value="all">Tất cả</option>
+                <option value="KHDN">KHDN</option>
+                <option value="SME">SME</option>
+                <option value="Vận hành">Vận hành</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="grid swimlanes" id="task-board">
+          <!-- Filled by JS -->
+        </div>
+      </section>
+
+      <section id="teams" class="panel">
+        <div class="panel-header">
+          <h2>Phân bổ nhân sự</h2>
+          <div class="filters">
+            <label>Nhóm
+              <select>
+                <option>Toàn phòng</option>
+                <option>KHDN</option>
+                <option>SME</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="grid team-grid" id="team-grid">
+          <!-- Filled by JS -->
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
